@@ -41,6 +41,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Soundboard" id="2oS-XT-Fpc"/>
+                    <connections>
+                        <outlet property="tableView" destination="qRe-tX-kRq" id="pZx-re-3en"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
