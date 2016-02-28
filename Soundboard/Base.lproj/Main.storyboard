@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -40,7 +41,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Soundboard" id="2oS-XT-Fpc"/>
+                    <navigationItem key="navigationItem" title="Soundboard" id="2oS-XT-Fpc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tjf-rU-opP">
+                            <connections>
+                                <segue destination="jMc-vU-pXG" kind="presentation" id="eXJ-06-fnJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="qRe-tX-kRq" id="pZx-re-3en"/>
                     </connections>
@@ -48,6 +55,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-564" y="258"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="lnE-Xd-4kU">
+            <objects>
+                <viewController id="jMc-vU-pXG" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="h1m-EN-Gx1"/>
+                        <viewControllerLayoutGuide type="bottom" id="GwS-7I-wtl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oof-fg-DKy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GBh-er-MIO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="bDv-wQ-HzI"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="New Sound" id="msE-9l-VYl">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="TkN-Fv-psh"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="cHo-pc-cG2"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter sound name here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HTB-TB-xjn">
+                                <rect key="frame" x="40" y="84" width="520" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0D-2z-cYU">
+                                <rect key="frame" x="40" y="134" width="520" height="30"/>
+                                <state key="normal" title="RECORD"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="GBh-er-MIO" secondAttribute="trailing" id="CZa-94-tUE"/>
+                            <constraint firstItem="A0D-2z-cYU" firstAttribute="leading" secondItem="oof-fg-DKy" secondAttribute="leadingMargin" constant="20" id="RUC-af-hHN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HTB-TB-xjn" secondAttribute="trailing" constant="20" id="Xrc-O9-JCn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="A0D-2z-cYU" secondAttribute="trailing" constant="20" id="bvR-vA-t1U"/>
+                            <constraint firstItem="GBh-er-MIO" firstAttribute="top" secondItem="oof-fg-DKy" secondAttribute="topMargin" id="dbY-Hd-8tC"/>
+                            <constraint firstItem="HTB-TB-xjn" firstAttribute="top" secondItem="GBh-er-MIO" secondAttribute="bottom" constant="20" id="gel-OD-fVS"/>
+                            <constraint firstItem="HTB-TB-xjn" firstAttribute="leading" secondItem="oof-fg-DKy" secondAttribute="leadingMargin" constant="20" id="mUo-ht-xA2"/>
+                            <constraint firstItem="GBh-er-MIO" firstAttribute="leading" secondItem="oof-fg-DKy" secondAttribute="leading" id="oYl-1L-XA5"/>
+                            <constraint firstItem="A0D-2z-cYU" firstAttribute="top" secondItem="HTB-TB-xjn" secondAttribute="bottom" constant="20" id="tBd-v9-ZKK"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Clx-12-Xmk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="146" y="258"/>
         </scene>
     </scenes>
 </document>
