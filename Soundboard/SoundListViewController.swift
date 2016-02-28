@@ -63,5 +63,10 @@ class SoundListViewController: UIViewController, UITableViewDataSource, UITableV
         try! self.audioPlayer = AVAudioPlayer(contentsOfURL: soundURL)
         self.audioPlayer.play()
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var nextViewController = segue.destinationViewController as! NewSoundViewController
+        nextViewController.previousViewController = self
+    }
 }
 
