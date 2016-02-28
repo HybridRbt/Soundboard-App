@@ -12,22 +12,37 @@ import AVFoundation
 class SoundListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    var audioPlayer = AVAudioPlayer()
     
+    var audioPlayer = AVAudioPlayer()
+    var sounds: [Sound] = []  //list for the sounds
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
+        var sound1 = Sound()
+        sound1.name = "Movie quote"
+        sound1.URL = getSoundURLFromFileName("movie_quote", fileType: "mp3")
+        
+        self.sounds.append(sound1)
+        
+        var sound2 = Sound()
+        sound2.name = "Movie quote2"
+        sound2.URL = getSoundURLFromFileName("movie_quote", fileType: "mp3")
+        
+        self.sounds.append(sound2)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return self.sounds.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var sound = self.sounds[indexPath.row]
         var cell = UITableViewCell()
-        cell.textLabel!.text = "LALLAAL"
+        cell.textLabel!.text = sound.name
         return cell
     }
     
