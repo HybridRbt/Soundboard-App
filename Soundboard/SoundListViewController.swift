@@ -46,9 +46,15 @@ class SoundListViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func getSoundURLFromFileName(fileName: String, fileType: String) -> NSURL {
         let soundPath = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3")
         let soundURL = NSURL.fileURLWithPath(soundPath!)
+        
+        return soundURL
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let soundURL = getSoundURLFromFileName("movie_quote", fileType: "mp3")
         
         try! self.audioPlayer = AVAudioPlayer(contentsOfURL: soundURL)
         self.audioPlayer.play()
