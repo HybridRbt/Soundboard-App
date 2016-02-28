@@ -35,6 +35,10 @@ class SoundListViewController: UIViewController, UITableViewDataSource, UITableV
         self.sounds.append(sound2)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.sounds.count
     }
