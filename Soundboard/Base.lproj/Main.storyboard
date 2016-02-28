@@ -56,10 +56,10 @@
             </objects>
             <point key="canvasLocation" x="-564" y="258"/>
         </scene>
-        <!--View Controller-->
+        <!--New Sound View Controller-->
         <scene sceneID="lnE-Xd-4kU">
             <objects>
-                <viewController id="jMc-vU-pXG" sceneMemberID="viewController">
+                <viewController id="jMc-vU-pXG" customClass="NewSoundViewController" customModule="Soundboard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h1m-EN-Gx1"/>
                         <viewControllerLayoutGuide type="bottom" id="GwS-7I-wtl"/>
@@ -75,8 +75,16 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="New Sound" id="msE-9l-VYl">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="TkN-Fv-psh"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="cHo-pc-cG2"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="TkN-Fv-psh">
+                                            <connections>
+                                                <action selector="cancelTapped:" destination="jMc-vU-pXG" id="ScR-Xm-ZCl"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="cHo-pc-cG2">
+                                            <connections>
+                                                <action selector="saveTapped:" destination="jMc-vU-pXG" id="WK8-8s-gKy"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -103,6 +111,9 @@
                             <constraint firstItem="A0D-2z-cYU" firstAttribute="top" secondItem="HTB-TB-xjn" secondAttribute="bottom" constant="20" id="tBd-v9-ZKK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="newSoundName" destination="HTB-TB-xjn" id="KXn-Mc-a0l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Clx-12-Xmk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
