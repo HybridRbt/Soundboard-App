@@ -28,4 +28,18 @@ class NewSoundViewController : UIViewController {
         self.previousViewController.sounds.append(sound)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    @IBAction func recordTapped(sender: AnyObject) {
+        if self.audioRecorder.recording {
+            self.audioRecorder.stop()
+            self.recordButton.setTitle("RECORD", forState: UIControlState.Normal)
+
+        } else {
+            let session = AVAudioSession.sharedInstance()
+            try! session.setActive(true)
+            self.audioRecorder.record()
+            self.recordButton.setTitle("Finish recording", forState: UIControlState.Normal)
+        }
+    }
+    
 }
