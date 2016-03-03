@@ -22,13 +22,13 @@ class SoundListViewController: UIViewController, UITableViewDataSource, UITableV
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        var sound1 = Sound()
+        let sound1 = Sound()
         sound1.name = "Movie quote"
         sound1.URL = getSoundURLFromFileName("movie_quote", fileType: "mp3")
         
         self.sounds.append(sound1)
         
-        var sound2 = Sound()
+        let sound2 = Sound()
         sound2.name = "Movie quote2"
         sound2.URL = getSoundURLFromFileName("movie_quote", fileType: "mp3")
         
@@ -44,8 +44,8 @@ class SoundListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var sound = self.sounds[indexPath.row]
-        var cell = UITableViewCell()
+        let sound = self.sounds[indexPath.row]
+        let cell = UITableViewCell()
         cell.textLabel!.text = sound.name
         return cell
     }
@@ -58,14 +58,15 @@ class SoundListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let soundURL = getSoundURLFromFileName("movie_quote", fileType: "mp3")
+        let sound = self.sounds[indexPath.row]
+        let soundURL = sound.URL
         
         try! self.audioPlayer = AVAudioPlayer(contentsOfURL: soundURL)
         self.audioPlayer.play()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var nextViewController = segue.destinationViewController as! NewSoundViewController
+        let nextViewController = segue.destinationViewController as! NewSoundViewController
         nextViewController.previousViewController = self
     }
 }
