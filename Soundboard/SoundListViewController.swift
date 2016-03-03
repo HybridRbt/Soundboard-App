@@ -51,7 +51,7 @@ class SoundListViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func getSoundURLFromFileName(fileName: String, fileType: String) -> NSURL {
-        let soundPath = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3")
+        let soundPath = NSBundle.mainBundle().pathForResource(fileName, ofType: fileType)
         let soundURL = NSURL.fileURLWithPath(soundPath!)
         
         return soundURL
