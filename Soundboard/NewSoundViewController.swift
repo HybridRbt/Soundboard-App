@@ -7,10 +7,34 @@
 //
 
 import UIKit
+import AVFoundation
 
 class NewSoundViewController : UIViewController {
+    required init?(coder aDecoder : NSCoder) {
+        let baseString : String = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as String
+        let pathComponents = [baseString, "MyAudio.m4a"]
+        self.audioURL = NSURL.fileURLWithPathComponents(pathComponents)!
+        
+        let session = AVAudioSession.sharedInstance()
+        try! session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+        
+        var recordSettings : [String : AnyObject] = Dictionary()
+        
+        recordSettings[AVFormatIDKey] = Int(kAudioFormatMPEG4AAC)
+        recordSettings[AVSampleRateKey] = 44100.0
+        recordSettings[AVNumberOfChannelsKey] = 2
+        
+        try! self.audioRecorder = AVAudioRecorder(URL: self.audioURL, settings: recordSettings)
+        self.audioRecorder.meteringEnabled = true
+        self.audioRecorder.prepareToRecord()
+        
+        super.init(coder: aDecoder)
+    }
+    
     @IBOutlet weak var newSoundName: UITextField!
     
+    var audioRecorder : AVAudioRecorder
+    var audioURL : NSURL
     var previousViewController = SoundListViewController()
     
     override func viewDidLoad() {
