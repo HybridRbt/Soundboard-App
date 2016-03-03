@@ -32,6 +32,7 @@ class NewSoundViewController : UIViewController {
     }
     
     @IBOutlet weak var newSoundName: UITextField!
+    @IBOutlet weak var recordButton: UIButton!
     
     var audioRecorder : AVAudioRecorder
     var audioURL : NSURL
