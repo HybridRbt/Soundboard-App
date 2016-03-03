@@ -13,6 +13,10 @@
 		A1535BA51C83785E003F54B6 /* Soundboard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A1535BA31C83785E003F54B6 /* Soundboard.xcdatamodeld */; };
 		A1535BA71C83785E003F54B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1535BA61C83785E003F54B6 /* Assets.xcassets */; };
 		A1535BAA1C83785E003F54B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1535BA81C83785E003F54B6 /* LaunchScreen.storyboard */; };
+		A19D5CC31C89013A0011987D /* NewSoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D5CC11C89013A0011987D /* NewSoundViewController.swift */; };
+		A19D5CC71C89016E0011987D /* Sound+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D5CC51C89016E0011987D /* Sound+CoreDataProperties.swift */; };
+		A19D5CC81C89016E0011987D /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19D5CC61C89016E0011987D /* Sound.swift */; };
+		A19D5CCA1C8904190011987D /* movie_quote.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A19D5CC91C8904190011987D /* movie_quote.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		A1535BA61C83785E003F54B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1535BA91C83785E003F54B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1535BAB1C83785E003F54B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A19D5CC11C89013A0011987D /* NewSoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSoundViewController.swift; sourceTree = "<group>"; };
+		A19D5CC51C89016E0011987D /* Sound+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Sound+CoreDataProperties.swift"; path = "Soundboard/Sound+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A19D5CC61C89016E0011987D /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sound.swift; path = Soundboard/Sound.swift; sourceTree = "<group>"; };
+		A19D5CC91C8904190011987D /* movie_quote.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = movie_quote.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +48,8 @@
 		A1535B901C83785E003F54B6 = {
 			isa = PBXGroup;
 			children = (
+				A19D5CC51C89016E0011987D /* Sound+CoreDataProperties.swift */,
+				A19D5CC61C89016E0011987D /* Sound.swift */,
 				A1535B9B1C83785E003F54B6 /* Soundboard */,
 				A1535B9A1C83785E003F54B6 /* Products */,
 			);
@@ -56,6 +66,8 @@
 		A1535B9B1C83785E003F54B6 /* Soundboard */ = {
 			isa = PBXGroup;
 			children = (
+				A19D5CC91C8904190011987D /* movie_quote.mp3 */,
+				A19D5CC11C89013A0011987D /* NewSoundViewController.swift */,
 				A1535B9C1C83785E003F54B6 /* AppDelegate.swift */,
 				A1535B9E1C83785E003F54B6 /* SoundListViewController.swift */,
 				A1535BA01C83785E003F54B6 /* Main.storyboard */,
@@ -128,6 +140,7 @@
 			files = (
 				A1535BAA1C83785E003F54B6 /* LaunchScreen.storyboard in Resources */,
 				A1535BA71C83785E003F54B6 /* Assets.xcassets in Resources */,
+				A19D5CCA1C8904190011987D /* movie_quote.mp3 in Resources */,
 				A1535BA21C83785E003F54B6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,7 +152,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A19D5CC71C89016E0011987D /* Sound+CoreDataProperties.swift in Sources */,
+				A19D5CC81C89016E0011987D /* Sound.swift in Sources */,
 				A1535B9F1C83785E003F54B6 /* SoundListViewController.swift in Sources */,
+				A19D5CC31C89013A0011987D /* NewSoundViewController.swift in Sources */,
 				A1535BA51C83785E003F54B6 /* Soundboard.xcdatamodeld in Sources */,
 				A1535B9D1C83785E003F54B6 /* AppDelegate.swift in Sources */,
 			);
@@ -291,6 +307,7 @@
 				A1535BB01C83785E003F54B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
