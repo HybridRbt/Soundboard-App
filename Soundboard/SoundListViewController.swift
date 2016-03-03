@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class SoundListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -22,17 +23,28 @@ class SoundListViewController: UIViewController, UITableViewDataSource, UITableV
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
-        let sound1 = Sound()
-        sound1.name = "Movie quote"
-        sound1.URL = getSoundURLFromFileName("movie_quote", fileType: "mp3")
+        let context = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
         
-        self.sounds.append(sound1)
+        let sound1 = NSEntityDescription.insertNewObjectForEntityForName("Sound", inManagedObjectContext: context) as! Sound
+        sound1.name = "A Sound"
+        sound1.url = getSoundURLFromFileName("movie_quote", fileType: "mp3").absoluteString
         
-        let sound2 = Sound()
-        sound2.name = "Movie quote2"
-        sound2.URL = getSoundURLFromFileName("movie_quote", fileType: "mp3")
+        try! context.save()
+
+        let request = NSFetchRequest(entityName: "Sound")
+        self.sounds = try! context.executeFetchRequest(request) as! [Sound]
         
-        self.sounds.append(sound2)
+//        let sound1 = Sound()
+//        sound1.name = "Movie quote"
+//        sound1.URL = getSoundURLFromFileName("movie_quote", fileType: "mp3")
+//        
+//        self.sounds.append(sound1)
+//        
+//        let sound2 = Sound()
+//        sound2.name = "Movie quote2"
+//        sound2.URL = getSoundURLFromFileName("movie_quote", fileType: "mp3")
+        
+//        self.sounds.append(sound2)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -59,9 +71,9 @@ class SoundListViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let sound = self.sounds[indexPath.row]
-        let soundURL = sound.URL
+        let soundURL = sound.url
         
-        try! self.audioPlayer = AVAudioPlayer(contentsOfURL: soundURL)
+        //try! self.audioPlayer = AVAudioPlayer(contentsOfURL: soundURL)
         self.audioPlayer.play()
     }
     
