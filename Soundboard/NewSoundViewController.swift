@@ -50,7 +50,7 @@ class NewSoundViewController : UIViewController {
     @IBAction func saveTapped(sender: AnyObject) {
         let sound = Sound()
         sound.name = self.newSoundName.text!
-        sound.URL = self.audioURL
+        sound.url = self.audioURL.absoluteString
         self.previousViewController.sounds.append(sound)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
